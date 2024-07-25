@@ -13,8 +13,8 @@ p1,p2,p3 = 0,0,0
 new_age = 0
 a = 0
 
-   
-class Main2(Screen):
+ #1111111111111111111111111111111111111111111111111111111111111111111111111  
+class Main1(Screen):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
         label2 = Label(text = inst2, size_hint=(1,0.5),
@@ -22,10 +22,36 @@ class Main2(Screen):
                       
         but2 = Button(text = "Почати тестування", size_hint=(0.35,0.15),
                       pos_hint={"y":0.01, "center_x":0.5})
+        
+        
 
         lineF = FloatLayout(size_hint=(1,1))
         lineF.add_widget(label2)
-      
+        
+        
+        lineF.add_widget(but2)
+
+        self.add_widget(lineF)
+        but2.on_press = self.next_win
+
+    def next_win(self):
+        self.manager.current = 'main2'
+        self.manager.transition.direction = "up"
+#22222222222222222222222222222222222222222222222222222222222222222222222222
+class Main2(Screen):
+    def __init__(self,**kwargs):
+        super().__init__(**kwargs)
+        label2 = Label(text = inst3, size_hint=(1,0.5),
+                      pos_hint={"y":0.5, "center_x":0.5})
+                      
+        but2 = Button(text = "Далі", size_hint=(0.35,0.15),
+                      pos_hint={"y":0.01, "center_x":0.5})
+        city = TextInput(multiline=False,size_hint=(0.35,0.05),
+                      pos_hint={"y":0.5, "center_x":0.5} )
+        
+        lineF = FloatLayout(size_hint=(1,1))
+        lineF.add_widget(label2)
+        lineF.add_widget(city)
         
         lineF.add_widget(but2)
 
@@ -36,92 +62,107 @@ class Main2(Screen):
         self.manager.current = 'main3'
         self.manager.transition.direction = "up"
 
+#333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
 class Main3(Screen):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
-        label4 = Label(text = inst3, size_hint=(1,0.5),
+        label2 = Label(text = inst4, size_hint=(1,0.5),
                       pos_hint={"y":0.5, "center_x":0.5})
-        
-        q1 = TextInput(multiline = False, size_hint=(0.5,0.1),
-                      pos_hint={"y":0.5, "center_x":0.5})
-
-
-
-
-        but2 = Button(text = "Почати", size_hint=(0.35,0.15),
+                      
+        but2 = Button(text = "Продовжуєм", size_hint=(0.35,0.15),
                       pos_hint={"y":0.01, "center_x":0.5})
-
+        age = TextInput(multiline=False,size_hint=(0.35,0.05),
+                      pos_hint={"y":0.5, "center_x":0.5} )
+        
         lineF = FloatLayout(size_hint=(1,1))
-        lineF.add_widget(label4)
-        lineF.add_widget(q1)
+        lineF.add_widget(label2)
+        lineF.add_widget(age)
+        
         lineF.add_widget(but2)
 
         self.add_widget(lineF)
-
         but2.on_press = self.next_win
 
     def next_win(self):
         self.manager.current = 'main4'
         self.manager.transition.direction = "up"
 
+
+#44444444444444444444444444444444444444444444444444444444444444444444444444444444
 class Main4(Screen):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
-        lineV = FloatLayout( size_hint=(1,1))
-        line1= BoxLayout(size_hint=(1,0.4), pos_hint={"y":0.7, "center_x":0.5})
-        line2= BoxLayout(size_hint=(0.5,0.05),pos_hint={"y":0.4, "center_x":0.5})
-        line3= BoxLayout(size_hint=(0.5,0.05),pos_hint={"y":0.2, "center_x":0.5})
-        line4= BoxLayout(size_hint=(0.25,0.1),pos_hint={"y":0, "center_x":0.5})
+        label2 = Label(text = inst5, size_hint=(1,0.5),
+                      pos_hint={"y":0.5, "center_x":0.5})
+                      
+        but2 = Button(text = "Продовжити", size_hint=(0.35,0.15),
+                      pos_hint={"y":0.01, "center_x":0.5})
+        mounth = TextInput(multiline=False,size_hint=(0.35,0.05),
+                      pos_hint={"y":0.5, "center_x":0.5} )
+        
+        lineF = FloatLayout(size_hint=(1,1))
+        lineF.add_widget(label2)
+        lineF.add_widget(mounth)
+        
+        lineF.add_widget(but2)
 
-        label1 = Label(text=inst4)
-        line1.add_widget(label1)
-
-        label2 = Label(text="Результат")
-        self.rezalt2 = TextInput(multiline = False)
-        line2.add_widget(label2)
-        line2.add_widget(self.rezalt2)
-
-        label3 = Label(text="Результат після відпочинку")
-        self.rezalt3 = TextInput(multiline = False)
-        line3.add_widget(label3)
-        line3.add_widget(self.rezalt3)        
-
-        but1 = Button(text="Завершити")
-        line4.add_widget(but1)
-
-        lineV.add_widget(line1)
-        lineV.add_widget(line2)
-        lineV.add_widget(line3)
-        lineV.add_widget(line4)
-
-        self.add_widget(lineV)
-        but1.on_press = self.next_win
+        self.add_widget(lineF)
+        but2.on_press = self.next_win
 
     def next_win(self):
-        global p3
-        global p2
-        p2 = int(self.rezalt2.text)
-        p3= int(self.rezalt3.text)
         self.manager.current = 'main5'
         self.manager.transition.direction = "up"
 
-
+#55555555555555555555555555555555555555555555555555555555555555555555555555555555
 class Main5(Screen):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
-
-        self.label4 = Label(text = "", size_hint=(1,0.5),
-                      pos_hint={"y":0.5, "center_x":0.5})                  
+        label2 = Label(text = inst6, size_hint=(1,0.5),
+                      pos_hint={"y":0.5, "center_x":0.5})
+                      
+        but2 = Button(text = "Продовжити", size_hint=(0.35,0.15),
+                      pos_hint={"y":0.01, "center_x":0.5})
+        male_or_female = TextInput(multiline=False,size_hint=(0.35,0.05),
+                      pos_hint={"y":0.5, "center_x":0.5} )
         
         lineF = FloatLayout(size_hint=(1,1))
-        lineF.add_widget(self.label4)
+        lineF.add_widget(label2)
+        lineF.add_widget(male_or_female)
+        
+        lineF.add_widget(but2)
 
         self.add_widget(lineF)
-        self.on_enter = self.before
-    def before(self):
-      global a
-      a = test(p1, p2, p3)
-      self.label4.text = str(finish(a,new_age))
+        but2.on_press = self.next_win
+
+    def next_win(self):
+        self.manager.current = 'main6'
+        self.manager.transition.direction = "up"
+
+#666666666666666666666666666666666666666666666666666666666666666666666666666666666666
+class Main6(Screen):
+    def __init__(self,**kwargs):
+        super().__init__(**kwargs)
+        label2 = Label(text = inst2, size_hint=(1,0.5),
+                      pos_hint={"y":0.5, "center_x":0.5})
+                      
+        but2 = Button(text = "Продовжити", size_hint=(0.35,0.15),
+                      pos_hint={"y":0.01, "center_x":0.5})
+        male_or_female = TextInput(multiline=False,size_hint=(0.35,0.05),
+                      pos_hint={"y":0.5, "center_x":0.5} )
+        
+        lineF = FloatLayout(size_hint=(1,1))
+        lineF.add_widget(label2)
+        lineF.add_widget(male_or_female)
+        
+        lineF.add_widget(but2)
+
+        self.add_widget(lineF)
+        but2.on_press = self.next_win
+
+    def next_win(self):
+        self.manager.current = 'main6'
+        self.manager.transition.direction = "up"
+
 
 
 class Win(App):
@@ -129,10 +170,12 @@ class Win(App):
 
         main_screen= ScreenManager()
       
+        main_screen.add_widget(Main1(name='main1'))
         main_screen.add_widget(Main2(name='main2'))
         main_screen.add_widget(Main3(name='main3'))
         main_screen.add_widget(Main4(name='main4'))
         main_screen.add_widget(Main5(name='main5'))
+        main_screen.add_widget(Main6(name='main6'))
         return main_screen
 
 app = Win()
