@@ -9,9 +9,24 @@ from kivy.core.window import Window
 from kivy.animation import Animation
 from kivy.uix.image import Image
 from ins import *
-p1,p2,p3 = 0,0,0
-new_age = 0
-a = 0
+global city
+city=""
+global age
+age=""
+global mounth
+mounth=""
+global male_or_female
+male_or_female=""
+global a
+a=""
+global b
+b=""
+global c
+c=""
+global e
+e=""
+
+
 
  #1111111111111111111111111111111111111111111111111111111111111111111111111  
 class Main1(Screen):
@@ -142,26 +157,21 @@ class Main5(Screen):
 class Main6(Screen):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
-        label2 = Label(text = inst2, size_hint=(1,0.5),
+        self.label2 = Label(text = "", size_hint=(1,0.5),
                       pos_hint={"y":0.5, "center_x":0.5})
                       
-        but2 = Button(text = "Продовжити", size_hint=(0.35,0.15),
-                      pos_hint={"y":0.01, "center_x":0.5})
-        male_or_female = TextInput(multiline=False,size_hint=(0.35,0.05),
-                      pos_hint={"y":0.5, "center_x":0.5} )
-        
+       
         lineF = FloatLayout(size_hint=(1,1))
-        lineF.add_widget(label2)
-        lineF.add_widget(male_or_female)
+        lineF.add_widget(self.label2)
+  
         
-        lineF.add_widget(but2)
-
+       
         self.add_widget(lineF)
-        but2.on_press = self.next_win
+        self.on_enter = self.next_win
 
     def next_win(self):
-        self.manager.current = 'main6'
-        self.manager.transition.direction = "up"
+        finish(a,b,c,e,age,mounth,male_or_female,city)
+        self.label2.text = 
 
 
 
